@@ -4,7 +4,7 @@ _MENU = """\nWhat game do you want to play?
 
 
 class Terminal:
-    """Terminal UI class."""
+    """Terminal (cli) UI class."""
 
     def show_rules(self, min_num: int = 1, max_num: int = 20, trials: int = 6) -> str:
         print(

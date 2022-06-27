@@ -8,6 +8,8 @@ from src.bot import Bot
 
 @dataclass
 class Configurator:
+    """Configurator dataclass"""
+
     ui: UI
 
     def configure(self, min_num: int = 1, max_num: int = 20, trials: int = 6) -> "Game":

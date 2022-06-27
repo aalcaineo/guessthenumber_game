@@ -2,6 +2,8 @@ from src.ui import UI
 
 
 class Human:
+    """Human player class"""
+
     def __init__(self, ui: UI) -> None:
         self.name = ui.get_human_name()
 

@@ -2,6 +2,8 @@ import random
 
 
 class Bot:
+    """Bot player class"""
+
     def __init__(self) -> None:
         self.name = "cpu"
         self.min = None

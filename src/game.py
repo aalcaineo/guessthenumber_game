@@ -1,4 +1,4 @@
-from dataclasses import dataclass,field
+from dataclasses import dataclass, field
 
 from src.ui import UI
 from src.player import Player
@@ -7,6 +7,7 @@ from src.bot import Bot
 
 @dataclass
 class Game:
+    """Game class"""
 
     ui: UI
     player: Player
@@ -31,7 +32,7 @@ class Game:
             guess = self.turn(sense)
             sense = -1 * ((self.number - guess) < 0) + 1 * ((self.number - guess) > 0)
 
-            if not sense: # True if sense == 0
+            if not sense:  # True if sense == 0
                 break
 
             self.ui.try_again(sense)
@@ -41,7 +42,7 @@ class Game:
         self.set_winner(not sense)
 
     def turn(self, sense: int) -> int:
-        guess = self.min_num -1
+        guess = self.min_num - 1
         while guess not in range(self.min_num, self.max_num + 1):
             try:
                 if isinstance(self.player, Bot):
@@ -50,8 +51,8 @@ class Game:
                 else:
                     guess = self.player.make_guess(self.ui)
             except ValueError:
-                guess = self.min_num -1
-        
+                guess = self.min_num - 1
+
         return guess
 
     def set_winner(self, win: bool) -> None:
