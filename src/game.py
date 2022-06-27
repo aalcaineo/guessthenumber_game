@@ -21,7 +21,14 @@ class Game:
         if isinstance(self.opponent, Bot):
             self.number = self.opponent.set_number(self.min_num, self.max_num)
         else:
-            self.number = self.opponent.set_number(self.ui)
+            number = self.min_num - 1
+            while number not in range(self.min_num, self.max_num + 1):
+                try:
+                    number = self.opponent.set_number(self.ui)
+                except ValueError:
+                    number = self.min - 1
+
+            self.number = number
 
     def play(self) -> None:
         i = 0
